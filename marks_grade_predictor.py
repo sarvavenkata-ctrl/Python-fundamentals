@@ -40,7 +40,19 @@ def get_performance(average_mark):
         return "Needs Improvement"
 
 
-def plot_marks(subjects, marks):
+def calculate_summary(marks):
+    marks_array = np.array(marks, dtype=float)
+    average_mark = float(np.mean(marks_array))
+    final_grade = get_grade(average_mark)
+    performance = get_performance(average_mark)
+    return {
+        "average_mark": average_mark,
+        "grade": final_grade,
+        "performance": performance,
+    }
+
+
+def plot_marks(subjects, marks, output_path="marks_chart.png"):
     df = pd.DataFrame({"Subject": subjects, "Marks": marks})
     plt.figure(figsize=(10, 6))
     plt.bar(df["Subject"], df["Marks"], color=["#4CAF50", "#2196F3", "#FF9800", "#9C27B0", "#F44336"])
@@ -50,7 +62,7 @@ def plot_marks(subjects, marks):
     plt.ylim(0, 100)
     plt.grid(axis="y", linestyle="--", alpha=0.4)
     plt.tight_layout()
-    plt.savefig("marks_chart.png")
+    plt.savefig(output_path)
     plt.close()
 
 
@@ -76,15 +88,16 @@ def main():
         subjects.append(subject_name)
         marks.append(get_valid_mark(subject_name))
 
-    marks_array = np.array(marks, dtype=float)
-    average_mark = float(np.mean(marks_array))
-    final_grade = get_grade(average_mark)
-    performance = get_performance(average_mark)
+    summary = calculate_summary(marks)
+    average_mark = summary["average_mark"]
+    final_grade = summary["grade"]
+    performance = summary["performance"]
 
     print("\nResults:")
     print("-" * 30)
     print(f"Average Mark: {average_mark:.2f}")
-    print(f"Predicted Grade: {final_grade}")
+    print(f"Final Grade: {final_grade}")
+
     print(f"Performance: {performance}")
 
     df = pd.DataFrame({"Subject": subjects, "Marks": marks})
