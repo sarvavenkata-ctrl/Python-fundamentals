@@ -1,8 +1,6 @@
-# Python-fundamentals
+# Example Project
 
-A beginner-friendly Python learning repository covering core Python concepts, problem-solving exercises, and practical mini-projects.
-
-This public GitHub portfolio project also demonstrates Python fundamentals, data processing, and visualisation skills for AI/ML and software engineering roles.
+A public GitHub portfolio project demonstrating Python fundamentals, data processing, and visualisation skills for AI/ML and software engineering roles.
 
 ## Project Overview
 This project contains a simple but practical **Marks/Grade Predictor** application that:
@@ -41,8 +39,8 @@ This repository is intended to be a public project visible to recruiters and hir
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sarvavenkata-ctrl/Python-fundamentals.git
-   cd Python-fundamentals
+   git clone https://github.com/sarvavenkata-ctrl/Example-Project.git
+   cd Example-Project
    ```
 
 2. Create a virtual environment:
@@ -85,7 +83,7 @@ Performance: Distinction
 
 ## Project Structure
 ```text
-Python-fundamentals/
+Example-Project/
 ├── README.md
 ├── .gitignore
 ├── requirements.txt
